@@ -1,0 +1,12 @@
+<!ELEMENT GVFPFT_kurzusfelvetel (hallgato,kurzus*)>
+
+<!ELEMENT hallgato (hnev,szulev,szak)>
+    <!ELEMENT hnev (#PCDATA)>
+    <!ELEMENT szulev (#PCDATA)>
+    <!ELEMENT szak (#PCDATA)>
+        <!ATTLIST szak evf  CDATA #REQUIRED>
+
+<!ELEMENT kurzus (kurzusnev, kredit, hely, idopont, oktato, oraado?)>
+<!ATTLIST kurzus id ID #REQUIRED>
+<!ATTLIST kurzus jovahagyas CDATA #IMPLIED>
+<!ATTLIST kurzus nyelv CDATA #IMPLIED>
