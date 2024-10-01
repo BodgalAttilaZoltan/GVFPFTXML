@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BodgalAttila_orarend>
+    <ora id="01" tipus="Gyakorlat">
+        <targy>Integrált_vállalati_rendszerek</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>0800</tol>
+            <ig>1000</ig>
+        </idopont>
+        <helyszin>Inf_203</helyszin>
+        <oktato>dr._Kulcsárné_Dr._Forrai_Mónika</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+    <ora id="02" tipus="Elmélet">
+        <targy>Adatkezelés_XML_ben</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>1000</tol>
+            <ig>1200</ig>
+        </idopont>
+        <helyszin >Inf_103</helyszin>
+        <oktato>Dr._Bednarik_László</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+    <ora id="03" tipus="Gyakorlat">
+        <targy>Adatkezelés_XML_ben</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>1200</tol>
+            <ig>1400</ig>
+        </idopont>
+        <helyszin>Inf_103</helyszin>
+        <oktato>Dr._Bednarik_László</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+    <ora id="04" tipus="Elmélet">
+        <targy>Integrált_vállalati_rendszerek</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>1400</tol>
+            <ig>1600</ig>
+        </idopont>
+        <helyszin>A1_227</helyszin>
+        <oktato>Dr._Dadvandipour_Samad</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+    <ora id="05" tipus="Elmélet">
+        <targy>Web-es_alkalmazások_C#</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>1400</tol>
+            <ig>1600</ig>
+        </idopont>
+        <helyszin>Inf_101</helyszin>
+        <oktato>Árvai_László_Lajos</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+    <ora id="05" tipus="Gyakorlat">
+        <targy>Web-es_alkalmazások_C#</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>1600</tol>
+            <ig>1800</ig>
+        </idopont>
+        <helyszin>Inf_101</helyszin>
+        <oktato>Dr._Mileff_Péter</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+    <ora id="06" tipus="Gyakorlat">
+        <targy>Mesterséges_intelligencia_alapok</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>1000</tol>
+            <ig>1200</ig>
+        </idopont>
+        <helyszin>X_előadó</helyszin>
+        <oktato>Fazekas_Levente_Áron</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+    <ora id="07" tipus="Elmélet">
+        <targy>Mesterséges_intelligencia_alapok</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>1600</tol>
+            <ig>1800</ig>
+        </idopont>
+        <helyszin>XXXII_előadó</helyszin>
+        <oktato>Kunné_Dr._Tamás_Judit</oktato>
+        <szak>Mérnökinfó</szak>
+    </ora>
+</BodgalAttila_orarend>
