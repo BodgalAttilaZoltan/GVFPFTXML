@@ -11,10 +11,10 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
-public class DOMRead {
+public class DOMReadGVFPFT {
 
     public static void main(String argv[]) throws SAXException, IOException, ParserConfiguration Exception {
-
+ 
         File xmlFile = new File("hallgatoGVFPFT.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = factory.newDocumentBuilder();
