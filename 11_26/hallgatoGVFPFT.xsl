@@ -3,7 +3,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>
-            <body>
+            <body bgcolor="">
                 <h2>My Class</h2>
                 <table border="4">
                     <tr bgcolor="#9acd32">
