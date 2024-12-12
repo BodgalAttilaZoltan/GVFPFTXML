@@ -48,22 +48,14 @@
 
     </xs:element>
 
-
-    <!-- Irányítószám típus -->
-    <xs:simpleType name="IranyitoszamTipus">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]{4}"/>
-        </xs:restriction>
-    </xs:simpleType>
-
     <!-- Címek típusa -->
     <xs:complexType name="CimTipus">
         <xs:sequence>
-            <xs:element name="utca" type="xs:string"/>
-            <xs:element name="hazszam" type="xs:positiveInteger"/>
-            <xs:element name="iranyitoszam" type="IranyitoszamTipus"/>
-            <xs:element name="varos" type="xs:string"/>
-            <xs:element name="orszag" type="xs:string"/>
+            <xs:element name="utca" type="xs:string" minOccurs="0"/>
+            <xs:element name="hazszam" type="xs:positiveInteger" minOccurs="0"/>
+            <xs:element name="iranyitoszam" type="xs:integer"/>
+            <xs:element name="varos" type="xs:string" minOccurs="0"/>
+            <xs:element name="orszag" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -87,9 +79,9 @@
     <xs:complexType name="MinKovTipus">
         <xs:sequence>
             <xs:element name="processzor" type="xs:string"/>
-            <xs:element name="memoria" type="xs:string"/>
+            <xs:element name="memoria" type="xs:int"/>
             <xs:element name="videokartya" type="xs:string"/>
-            <xs:element name="szabadhely" type="xs:double"/>
+            <xs:element name="szabadhely" type="xs:int"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -216,7 +208,7 @@
                     <xs:attribute name="kulcs" type="KulcsTipus" use="required"/>
                     <xs:attribute name="jid" type="idTipus" use="required"/>
                     <xs:attribute name="kid" type="idTipus" use="required"/>
-                    <xs:attribute name="fid" type="idTipus" use="required"/>
+                    <xs:attribute name="fid" type="idTipus" use="optional"/>
                 </xs:complexType>
 
                 <xs:keyref name="JkulcsFK" refer="jatekKulcs">

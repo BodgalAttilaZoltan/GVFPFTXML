@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jatekdisztribucio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="XMLSchemaGVFPFT.xsd">
+    <tulajdonosok>
+        <tulajdonos tid="1">
+            <nev>
+                <vezetek>Morhaime</vezetek>
+                <kereszt>Michael</kereszt>
+            </nev>
+        </tulajdonos>
+    </tulajdonosok>
+
+    <gyartok>
+        <gyarto gyid="1" tid="1">
+            <nev>Blizzard Entertainment</nev>
+            <cim>
+                <iranyitoszam>18979</iranyitoszam>
+                <varos>Irvine</varos>
+                <orszag>Amerika</orszag>
+            </cim>
+        </gyarto>
+    </gyartok>
+
+    <jatekok>
+        <jatek jid="7" gyid="1">
+            <fejlesztesinev>Overwatch 2</fejlesztesinev>
+            <ertek>60</ertek>
+            <elerhetonyelvek>angol</elerhetonyelvek>
+            <elerhetonyelvek>német</elerhetonyelvek>
+            <elerhetonyelvek>francia</elerhetonyelvek>
+            <minimumkovetelmenyek>
+                <processzor>Intel® i3 2100 3.10GHz</processzor>
+                <memoria>4</memoria>
+                <videokartya>NVIDIA® GeForce® GTX 600</videokartya>
+                <szabadhely>50</szabadhely>
+            </minimumkovetelmenyek>
+        </jatek>
+    </jatekok>
+
+    <kiadok>
+        <kiado kid="1">
+            <nev>Steam</nev>
+        </kiado>
+
+        <kiado kid="2">
+            <nev>GOG</nev>
+        </kiado>
+
+        <kiado kid="3">
+            <nev>Epic Games</nev>
+        </kiado>
+
+        <kiado kid="4">
+            <nev>Blizzard</nev>
+        </kiado>
+    </kiadok>
+
+    <felhasznalok>
+        <felhasznalo fid="1">
+            <szamlazasicim>
+                <utca>Eszter</utca>
+                <hazszam>10</hazszam>
+                <iranyitoszam>3525</iranyitoszam>
+            </szamlazasicim>
+            <penztarca>250</penztarca>
+            <felhasznaloinev>Elfsarkany</felhasznaloinev>
+            <nev>
+                <vezetek>Bodgál</vezetek>
+                <kereszt>Attila</kereszt>
+            </nev>
+        </felhasznalo>
+    </felhasznalok>
+
+    <jatekkulcsok>
+        <jatekkulcs kulcs="2WLH5W6TW4AEDGNG69P24F0PP" jid="3" kid="9" fid="2">
+            <eladhato>true</eladhato>
+        </jatekkulcs>
+    </jatekkulcsok>
+
+    <kiadasok>
+        <kiadas jid="1" kid="1">
+            <megjelenes>2016-04-11</megjelenes>
+        </kiadas>
+    </kiadasok>
+
+    <partnerek>
+        <partner fid="1" kid="1">
+            <csatlakozas>2010-10-29</csatlakozas>
+        </partner>
+    </partnerek>
+
+</jatekdisztribucio>
