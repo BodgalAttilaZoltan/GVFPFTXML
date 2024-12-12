@@ -10,7 +10,8 @@
                 <xs:element name="kiadok" type="KiadokTipus"/>
                 <xs:element name="felhasznalok" type="FelhasznalokTipus"/>
                 <xs:element name="jatekkulcsok" type="JatekKulcsokTipus"/>
-                <xs:element name="kiadasok" type="KiadasokTipus"/>
+                <xs:element name="kiadasok" type="KiadasTipus"/>
+                <xs:element name="partnerek" type="PartnerTipus"/>
             </xs:sequence>
         </xs:complexType>
 
@@ -42,7 +43,7 @@
 
         <xs:key name ="jatekkulcsKulcs">
             <xs:selector xpath="jatekkulcsok/jatekkulcs"/>
-            <xs:field xpath="@jkulcs"/>
+            <xs:field xpath="@kulcs"/>
         </xs:key>
 
     </xs:element>
@@ -60,25 +61,69 @@
         <xs:sequence>
             <xs:element name="utca" type="xs:string"/>
             <xs:element name="hazszam" type="xs:positiveInteger"/>
+            <xs:element name="iranyitoszam" type="IranyitoszamTipus"/>
+            <xs:element name="varos" type="xs:string"/>
+            <xs:element name="orszag" type="xs:string"/>
         </xs:sequence>
-        <xs:attribute name="iranyitoszam" type="IranyitoszamTipus" use="required"/>
     </xs:complexType>
 
     <!-- Valós név típusa-->
-    <xs:complexType name="NevTipusa">
+    <xs:complexType name="NevTipus">
         <xs:sequence>
             <xs:element name="vezetek" type="xs:string"/>
-            <xs:element name="kereszt" type="xs:string" minOccurs="1" maxOccurs="2"/>
+            <xs:element name="kereszt" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
+    <!-- Játék kulcs típusa-->
+        <xs:simpleType name="KulcsTipus">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="25"/>
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Minimum követelmények típusa-->
+    <xs:complexType name="MinKovTipus">
+        <xs:sequence>
+            <xs:element name="processzor" type="xs:string"/>
+            <xs:element name="memoria" type="xs:string"/>
+            <xs:element name="videokartya" type="xs:string"/>
+            <xs:element name="szabadhely" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Nyelv típus -->
+    <xs:simpleType name="NyelvTipus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="angol"/>
+            <xs:enumeration value="német"/>
+            <xs:enumeration value="francia"/>
+            <xs:enumeration value="japán"/>
+            <xs:enumeration value="orosz"/>
+            <xs:enumeration value="kínai"/>
+            <xs:enumeration value="magyar"/>
+            <xs:enumeration value="lengyel"/>
+            <xs:enumeration value="spanyol"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Id típus (rövidebb)-->
+    <xs:simpleType name="idTipus">
+        <xs:restriction base="xs:nonNegativeInteger"/>
+    </xs:simpleType>
+
+
 
     <!-- Tulajdonos Típusa-->
     <xs:complexType name="TulajdonosokTipus">
         <xs:sequence>
             <xs:element name="tulajdonos" maxOccurs="unbounded">
                 <xs:complexType>
-                    <xs:attribute name="tid" type="xs:string" use="required"/>
-                    <xs:attribute name="nev" type="xs:string" use="required"/>
+                    <xs:sequence>
+                        <xs:element name="nev" type="NevTipus"/>
+                    </xs:sequence>
+                    <xs:attribute name="tid" type="idTipus" use="required"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
@@ -86,31 +131,162 @@
 
     <!-- Gyártó Típusa-->
     <xs:complexType name="GyartokTipus">
-    
+        <xs:sequence>
+            <xs:element name="gyarto" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nev" type="xs:string"/>
+                        <xs:element name="cim" type="CimTipus" />
+                    </xs:sequence>
+                    <xs:attribute name="gyid" type="idTipus" use="required"/>
+                    <xs:attribute name="tid" type="idTipus" use="required"/>
+                </xs:complexType>
+
+                <xs:keyref name="TgyartokFK" refer="tulajdonosKulcs">
+                    <xs:selector xpath="gyartok/gyarto"/>
+                    <xs:field xpath="@tid"/>
+                </xs:keyref>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 
     <!-- Játék Típusa-->
     <xs:complexType name="JatekokTipus">
-    
+        <xs:sequence>
+            <xs:element name="jatek" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fejlesztesinev" type="xs:string"/>
+                        <xs:element name="ertek" type="xs:integer"/>
+                        <xs:element name="elerhetonyelvek" type="NyelvTipus" minOccurs="1" maxOccurs="unbounded"/>
+                        <xs:element name="minimumkovetelmenyek" type="MinKovTipus"/>
+                    </xs:sequence>
+                    <xs:attribute name="jid" type="idTipus" use="required"/>
+                    <xs:attribute name="gyid" type="idTipus" use="required"/>
+                </xs:complexType>
+
+                <xs:keyref name="GYjatekokFK" refer="gyartoKulcs">
+                    <xs:selector xpath="jatekok/jatek"/>
+                    <xs:field xpath="@gyid"/>
+                </xs:keyref>
+
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 
     <!-- Kiadó Típusa-->
     <xs:complexType name="KiadokTipus">
-    
+        <xs:sequence>
+            <xs:element name="kiado" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nev" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="kid" type="idTipus" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 
     <!-- Felhasználó Típusa-->
     <xs:complexType name="FelhasznalokTipus">
-    
+        <xs:sequence>
+            <xs:element name="felhasznalo" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="szamlazasicim" type="CimTipus" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="penztarca" type="xs:integer"/>
+                        <xs:element name="felhasznaloinev" type="xs:string"/>
+                        <xs:element name="nev" type="NevTipus"/>
+                    </xs:sequence>
+                    <xs:attribute name="fid" type="idTipus" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 
     <!-- Játék kulcs Típusa-->
     <xs:complexType name="JatekKulcsokTipus">
-    
+        <xs:sequence>
+            <xs:element name="jatekkulcs" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="eladhato" type="xs:boolean"/>
+                    </xs:sequence>
+                    <xs:attribute name="kulcs" type="KulcsTipus" use="required"/>
+                    <xs:attribute name="jid" type="idTipus" use="required"/>
+                    <xs:attribute name="kid" type="idTipus" use="required"/>
+                    <xs:attribute name="fid" type="idTipus" use="required"/>
+                </xs:complexType>
+
+                <xs:keyref name="JkulcsFK" refer="jatekKulcs">
+                    <xs:selector xpath="katekkulcsok/jatekkulcs"/>
+                    <xs:field xpath="@jid"/>
+                </xs:keyref>
+
+                <xs:keyref name="KkulcsFK" refer="kiadoKulcs">
+                    <xs:selector xpath="katekkulcsok/jatekkulcs"/>
+                    <xs:field xpath="@kid"/>
+                </xs:keyref>
+
+                <xs:keyref name="FkulcsFK" refer="felhasznaloKulcs">
+                    <xs:selector xpath="katekkulcsok/jatekkulcs"/>
+                    <xs:field xpath="@fid"/>
+                </xs:keyref>
+
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 
-        <!-- Kiadás Típusa-->
-    <xs:complexType name="KiadasokTipus">
-    
+    <!-- Kiadás Típusa-->
+    <xs:complexType name="KiadasTipus">
+        <xs:sequence>
+            <xs:element name="kiadas" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="megjelenes" type="xs:date"/>
+                    </xs:sequence>
+                    <xs:attribute name="jid" type="idTipus" use="required"/>
+                    <xs:attribute name="kid" type="idTipus" use="required"/>
+                </xs:complexType>
+
+                <xs:keyref name="JkiadasFK" refer="jatekKulcs">
+                    <xs:selector xpath="kiadasok/kiadas"/>
+                    <xs:field xpath="@jid"/>
+                </xs:keyref>
+
+                <xs:keyref name="KkiadasFK" refer="kiadoKulcs">
+                    <xs:selector xpath="kiadasok/kiadas"/>
+                    <xs:field xpath="@kid"/>
+                </xs:keyref>
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Partner Típusa-->
+    <xs:complexType name="PartnerTipus">
+        <xs:sequence>
+            <xs:element name="partner" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="csatlakozas" type="xs:date"/>
+                    </xs:sequence>
+                    <xs:attribute name="fid" type="idTipus" use="required"/>
+                    <xs:attribute name="kid" type="idTipus" use="required"/>
+                </xs:complexType>
+
+                <xs:keyref name="FpartnerFK" refer="felhasznaloKulcs">
+                    <xs:selector xpath="partnerek/partner"/>
+                    <xs:field xpath="@fid"/>
+                </xs:keyref>
+
+                <xs:keyref name="KpartnerFK" refer="kiadoKulcs">
+                    <xs:selector xpath="partnerek/partner"/>
+                    <xs:field xpath="@kid"/>
+                </xs:keyref>
+
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>
