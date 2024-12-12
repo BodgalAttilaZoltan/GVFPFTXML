@@ -3,12 +3,35 @@
 <jatekdisztribucio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="XMLSchemaGVFPFT.xsd">
     <tulajdonosok>
+
         <tulajdonos tid="1">
             <nev>
                 <vezetek>Morhaime</vezetek>
                 <kereszt>Michael</kereszt>
             </nev>
         </tulajdonos>
+
+        <tulajdonos tid="2">
+            <nev>
+                <vezetek>Iwiński</vezetek>
+                <kereszt>Marcin</kereszt>
+            </nev>
+        </tulajdonos>
+
+        <tulajdonos tid="3">
+            <nev>
+                <vezetek>Mitsuaki</vezetek>
+                <kereszt>Taguchi</kereszt>
+            </nev>
+        </tulajdonos>
+
+        <tulajdonos tid="4">
+            <nev>
+                <vezetek>Hidetaka</vezetek>
+                <kereszt>Miyazaki</kereszt>
+            </nev>
+        </tulajdonos>
+
     </tulajdonosok>
 
     <gyartok>
@@ -20,9 +43,72 @@
                 <orszag>Amerika</orszag>
             </cim>
         </gyarto>
+
+        <gyarto gyid="2" tid="1">
+            <nev>CD Project Red</nev>
+            <cim>
+                <utca>Jagiellońska</utca>
+                <hazszam>74</hazszam>
+                <iranyitoszam>03301</iranyitoszam>
+                <varos>Varsó</varos>
+                <orszag>Lengyel ország</orszag>
+            </cim>
+        </gyarto>
+
+        <gyarto gyid="3" tid="1">
+            <nev>Feral Interactive</nev>
+            <cim>
+                <varos>London</varos>
+                <orszag>Egyesült Királyság</orszag>
+            </cim>
+        </gyarto>
+
+        <gyarto gyid="4" tid="3">
+            <nev>Bandai Namco Entertainment</nev>
+            <cim/>
+        </gyarto>
+
+        <gyarto gyid="6" tid="4">
+            <nev>FromSoftware</nev>
+            <cim>
+                <orszag>Japán</orszag>
+            </cim>
+        </gyarto>
+
     </gyartok>
 
     <jatekok>
+        <jatek jid="1" gyid="6">
+            <fejlesztesinev>Dark Souls 3</fejlesztesinev>
+            <ertek>60</ertek>
+            <elerhetonyelvek>angol</elerhetonyelvek>
+            <elerhetonyelvek>német</elerhetonyelvek>
+            <elerhetonyelvek>japán</elerhetonyelvek>
+            <elerhetonyelvek>kínai</elerhetonyelvek>
+            <minimumkovetelmenyek>
+                <processzor>Intel i7-3770</processzor>
+                <memoria>8</memoria>
+                <videokartya>NVIDIA® GeForce® GTX 970</videokartya>
+                <szabadhely>25</szabadhely>
+            </minimumkovetelmenyek>
+        </jatek>
+
+        <jatek jid="6" gyid="3">
+            <fejlesztesinev>Total War: WARHAMMER 3</fejlesztesinev>
+            <ertek>60</ertek>
+            <elerhetonyelvek>angol</elerhetonyelvek>
+            <elerhetonyelvek>német</elerhetonyelvek>
+            <elerhetonyelvek>francia</elerhetonyelvek>
+            <elerhetonyelvek>orosz</elerhetonyelvek>
+            <elerhetonyelvek>spanyol</elerhetonyelvek>
+            <minimumkovetelmenyek>
+                <processzor>Intel i5</processzor>
+                <memoria>8</memoria>
+                <videokartya>Nvidia GeForce GTX 1660 Ti</videokartya>
+                <szabadhely>120</szabadhely>
+            </minimumkovetelmenyek>
+        </jatek>
+
         <jatek jid="7" gyid="1">
             <fejlesztesinev>Overwatch 2</fejlesztesinev>
             <ertek>60</ertek>
@@ -36,6 +122,7 @@
                 <szabadhely>50</szabadhely>
             </minimumkovetelmenyek>
         </jatek>
+
     </jatekok>
 
     <kiadok>
@@ -62,6 +149,7 @@
                 <utca>Eszter</utca>
                 <hazszam>10</hazszam>
                 <iranyitoszam>3525</iranyitoszam>
+                <varos>Miskolc</varos>
             </szamlazasicim>
             <penztarca>250</penztarca>
             <felhasznaloinev>Elfsarkany</felhasznaloinev>
@@ -70,11 +158,50 @@
                 <kereszt>Attila</kereszt>
             </nev>
         </felhasznalo>
+
+        <felhasznalo fid="2">
+            <szamlazasicim>
+                <utca>Pálvi</utca>
+                <hazszam>45</hazszam>
+                <iranyitoszam>4014</iranyitoszam>
+                <varos>Debrecen</varos>
+            </szamlazasicim>
+            <penztarca>100</penztarca>
+            <felhasznaloinev>ToTi</felhasznaloinev>
+            <nev>
+                <vezetek>Tóth</vezetek>
+                <kereszt>Tibor</kereszt>
+            </nev>
+        </felhasznalo>
+
+        <felhasznalo fid="3">
+            <szamlazasicim>
+                <utca>Király</utca>
+                <hazszam>2</hazszam>
+                <iranyitoszam>3530</iranyitoszam>
+                <varos>Miskolc</varos>
+            </szamlazasicim>
+            <penztarca>250</penztarca>
+            <felhasznaloinev>Lala</felhasznaloinev>
+            <nev>
+                <vezetek>Kála</vezetek>
+                <kereszt>András</kereszt>
+            </nev>
+        </felhasznalo>
+
     </felhasznalok>
 
     <jatekkulcsok>
-        <jatekkulcs kulcs="2WLH5W6TW4AEDGNG69P24F0PP" jid="3" kid="9" fid="2">
+        <jatekkulcs kulcs="AWL60RR6R0W6N2OCBW3SO9EGN" jid="6" kid="1" fid="1">
             <eladhato>true</eladhato>
+        </jatekkulcs>
+
+        <jatekkulcs kulcs="0715YVWO9N24CAAXWT383DU81" jid="7" kid="4" fid="1">
+            <eladhato>false</eladhato>
+        </jatekkulcs>
+
+        <jatekkulcs kulcs="B86PHGQGNMVHK1YSULR8L3DKT" jid="7" kid="4" fid="2">
+            <eladhato>false</eladhato>
         </jatekkulcs>
     </jatekkulcsok>
 
@@ -82,11 +209,28 @@
         <kiadas jid="1" kid="1">
             <megjelenes>2016-04-11</megjelenes>
         </kiadas>
+
+        <kiadas jid="6" kid="1">
+            <megjelenes>2022-02-17</megjelenes>
+        </kiadas>
+
+        <kiadas jid="7" kid="4">
+            <megjelenes>2012-05-15</megjelenes>
+        </kiadas>
+
     </kiadasok>
 
     <partnerek>
         <partner fid="1" kid="1">
             <csatlakozas>2010-10-29</csatlakozas>
+        </partner>
+        
+        <partner fid="1" kid="4">
+            <csatlakozas>2010-10-29</csatlakozas>
+        </partner>
+
+        <partner fid="2" kid="4">
+            <csatlakozas>2012-05-12</csatlakozas>
         </partner>
     </partnerek>
 

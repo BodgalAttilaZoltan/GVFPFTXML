@@ -53,7 +53,7 @@
         <xs:sequence>
             <xs:element name="utca" type="xs:string" minOccurs="0"/>
             <xs:element name="hazszam" type="xs:positiveInteger" minOccurs="0"/>
-            <xs:element name="iranyitoszam" type="xs:integer"/>
+            <xs:element name="iranyitoszam" type="xs:integer" minOccurs="0"/>
             <xs:element name="varos" type="xs:string" minOccurs="0"/>
             <xs:element name="orszag" type="xs:string" minOccurs="0"/>
         </xs:sequence>
@@ -131,7 +131,7 @@
                         <xs:element name="cim" type="CimTipus" />
                     </xs:sequence>
                     <xs:attribute name="gyid" type="idTipus" use="required"/>
-                    <xs:attribute name="tid" type="idTipus" use="required"/>
+                    <xs:attribute name="tid" type="idTipus" use="optional"/>
                 </xs:complexType>
 
                 <xs:keyref name="TgyartokFK" refer="tulajdonosKulcs">
