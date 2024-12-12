@@ -53,7 +53,7 @@
         <xs:sequence>
             <xs:element name="utca" type="xs:string" minOccurs="0"/>
             <xs:element name="hazszam" type="xs:positiveInteger" minOccurs="0"/>
-            <xs:element name="iranyitoszam" type="xs:integer" minOccurs="0"/>
+            <xs:element name="iranyitoszam" type="xs:int" minOccurs="0"/>
             <xs:element name="varos" type="xs:string" minOccurs="0"/>
             <xs:element name="orszag" type="xs:string" minOccurs="0"/>
         </xs:sequence>
@@ -149,7 +149,7 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="fejlesztesinev" type="xs:string"/>
-                        <xs:element name="ertek" type="xs:integer"/>
+                        <xs:element name="ertek" type="xs:int"/>
                         <xs:element name="elerhetonyelvek" type="NyelvTipus" minOccurs="1" maxOccurs="unbounded"/>
                         <xs:element name="minimumkovetelmenyek" type="MinKovTipus"/>
                     </xs:sequence>
@@ -187,7 +187,7 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="szamlazasicim" type="CimTipus" minOccurs="0" maxOccurs="1"/>
-                        <xs:element name="penztarca" type="xs:integer"/>
+                        <xs:element name="penztarca" type="xs:int"/>
                         <xs:element name="felhasznaloinev" type="xs:string"/>
                         <xs:element name="nev" type="NevTipus"/>
                     </xs:sequence>

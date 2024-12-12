@@ -7,7 +7,7 @@ import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
 import java.io.*;
 
-public class DomReadGVFPFT{
+public class DomWriteGVFPFT{
     public static void main(String[] args){
         try{
             //xml beolvasása
