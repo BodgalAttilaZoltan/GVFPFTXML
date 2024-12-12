@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Gyökér -->
+    <xs:element name="jatekdisztribucio">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tulajdonosok" type="TulajdonosokTipus"/>
+                <xs:element name="gyartok" type="GyartokTipus"/>
+                <xs:element name="jatekok" type="JatekokTipus"/>
+                <xs:element name="kiadok" type="KiadokTipus"/>
+                <xs:element name="felhasznalok" type="FelhasznalokTipus"/>
+                <xs:element name="jatekkulcsok" type="JatekKulcsokTipus"/>
+                <xs:element name="kiadasok" type="KiadasokTipus"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- Kulcsok-->
+        <xs:key name ="tulajdonosKulcs">
+            <xs:selector xpath="tulajdonosok/tulajdonos"/>
+            <xs:field xpath="@tid"/>
+        </xs:key>
+
+        <xs:key name ="gyartoKulcs">
+            <xs:selector xpath="gyartok/gyarto"/>
+            <xs:field xpath="@gyid"/>
+        </xs:key>
+
+        <xs:key name ="jatekKulcs">
+            <xs:selector xpath="jatekok/jatek"/>
+            <xs:field xpath="@jid"/>
+        </xs:key>
+
+        <xs:key name ="kiadoKulcs">
+            <xs:selector xpath="kiadok/kiado"/>
+            <xs:field xpath="@kid"/>
+        </xs:key>
+
+        <xs:key name ="felhasznaloKulcs">
+            <xs:selector xpath="felhasznalok/felhasznalo"/>
+            <xs:field xpath="@fid"/>
+        </xs:key>
+
+        <xs:key name ="jatekkulcsKulcs">
+            <xs:selector xpath="jatekkulcsok/jatekkulcs"/>
+            <xs:field xpath="@jkulcs"/>
+        </xs:key>
+
+    </xs:element>
+
+
+    <!-- Irányítószám típus -->
+    <xs:simpleType name="IranyitoszamTipus">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Címek típusa -->
+    <xs:complexType name="CimTipus">
+        <xs:sequence>
+            <xs:element name="utca" type="xs:string"/>
+            <xs:element name="hazszam" type="xs:positiveInteger"/>
+        </xs:sequence>
+        <xs:attribute name="iranyitoszam" type="IranyitoszamTipus" use="required"/>
+    </xs:complexType>
+
+    <!-- Valós név típusa-->
+    <xs:complexType name="NevTipusa">
+        <xs:sequence>
+            <xs:element name="vezetek" type="xs:string"/>
+            <xs:element name="kereszt" type="xs:string" minOccurs="1" maxOccurs="2"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Tulajdonos Típusa-->
+    <xs:complexType name="TulajdonosokTipus">
+        <xs:sequence>
+            <xs:element name="tulajdonos" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attribute name="tid" type="xs:string" use="required"/>
+                    <xs:attribute name="nev" type="xs:string" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Gyártó Típusa-->
+    <xs:complexType name="GyartokTipus">
+    
+    </xs:complexType>
+
+    <!-- Játék Típusa-->
+    <xs:complexType name="JatekokTipus">
+    
+    </xs:complexType>
+
+    <!-- Kiadó Típusa-->
+    <xs:complexType name="KiadokTipus">
+    
+    </xs:complexType>
+
+    <!-- Felhasználó Típusa-->
+    <xs:complexType name="FelhasznalokTipus">
+    
+    </xs:complexType>
+
+    <!-- Játék kulcs Típusa-->
+    <xs:complexType name="JatekKulcsokTipus">
+    
+    </xs:complexType>
+
+        <!-- Kiadás Típusa-->
+    <xs:complexType name="KiadasokTipus">
+    
+    </xs:complexType>
+</xs:schema>
